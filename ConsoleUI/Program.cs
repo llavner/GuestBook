@@ -5,7 +5,7 @@ List<GuestBookModel> guestMessages = new();
 
 ConsoleMessages.WelcomeMessage();
 
-ConsoleReqData.GetGuestInput(guestMessages);
+ConsoleReqData.GetGuestInformation(guestMessages);
 
 ConsoleMessages.PrintGuestBookMessages(guestMessages);
 

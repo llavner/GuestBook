@@ -9,7 +9,7 @@ namespace ConsoleUI;
 
 public static class ConsoleReqData
 {
-    public static void GetGuestInput(List<GuestBookModel> guestMessages)
+    public static void GetGuestInformation(List<GuestBookModel> guestMessages)
     {
         string isQuiting = string.Empty;
 
@@ -17,20 +17,20 @@ public static class ConsoleReqData
         {
             GuestBookModel guest = new();
 
-            Console.Write("First name: ");
-            guest.FirstName = Console.ReadLine();
-
-            Console.Write("Last name: ");
-            guest.LastName = Console.ReadLine();
-
-            Console.Write("Message: ");
-            guest.GuestBookMessage = Console.ReadLine();
-
+            guest.FirstName = GetUserInput("First name: ");
+            guest.LastName = GetUserInput("Last name: ");
+            guest.GuestBookMessage = GetUserInput("Message: ");
             guestMessages.Add(guest);
-
-            Console.Write("Do you wish to quit? (yes/no)");
-            isQuiting = Console.ReadLine();
+            isQuiting = GetUserInput("Do you wish to quit? (yes/no)");
 
         } while (isQuiting != "yes");
+    }
+
+    public static string GetUserInput(string message)
+    {
+        Console.Write(message);
+        string output = Console.ReadLine();
+
+        return output;
     }
 }

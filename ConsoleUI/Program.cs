@@ -1,11 +1,12 @@
-﻿
+﻿using ConsoleUI;
+using GuestLibrary.Models;
 
+List<GuestBookModel> guestMessages = new();
 
-Console.Write("First name: ");
-string firstName = Console.ReadLine();
+ConsoleMessages.WelcomeMessage();
 
-Console.Write("Last name: ");
-string lastName = Console.ReadLine();
+ConsoleReqData.GetGuestInformation(guestMessages);
 
-Console.Write("Message: ");
-string message = Console.ReadLine();
+ConsoleMessages.PrintGuestBookMessages(guestMessages);
+
+ConsoleMessages.GoodByeMessage();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GuestLibrary.Models;
 
-public class GuestModel
+public class GuestBookModel
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

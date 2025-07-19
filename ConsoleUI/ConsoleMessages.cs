@@ -18,12 +18,23 @@ public static class ConsoleMessages
 
     public static void PrintGuestBookMessages(List<GuestBookModel> guestMessages)
     {
-        foreach (var message in guestMessages)
+        Console.Clear();
+
+        if (guestMessages.Count != 0)
         {
-            Console.WriteLine(message.GuestInformation);
-            Console.WriteLine();
+            foreach (var message in guestMessages)
+            {
+                Console.WriteLine(message.GuestInformation);
+                Console.WriteLine();
+            }
+        }
+        else
+        {
+            Console.WriteLine("There is no messages in the guestbook.");
         }
 
+        Console.WriteLine("<Press a key to continue>");
+        Console.ReadLine();
     }
 
 }

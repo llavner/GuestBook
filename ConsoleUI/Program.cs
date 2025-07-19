@@ -2,11 +2,60 @@
 using GuestLibrary.Models;
 
 List<GuestBookModel> guestMessages = new();
+int option = 0;
 
 ConsoleMessages.WelcomeMessage();
 
-ConsoleReqData.GetGuestInformation(guestMessages);
+while (option != 3)
+{
 
-ConsoleMessages.PrintGuestBookMessages(guestMessages);
+    Console.WriteLine("1. View Guestbook\n2. Write to Guestbook\n3. Quit");
+    Console.WriteLine();
+    Console.Write("Option: ");
+    string optionText = Console.ReadLine();
 
-ConsoleMessages.GoodByeMessage();
+    bool isValidNumber = int.TryParse(optionText, out option);
+
+    if (isValidNumber)
+    {
+
+        switch (option)
+        {
+            case 1:
+                {
+                    ConsoleMessages.PrintGuestBookMessages(guestMessages);
+                    break;
+                }
+            case 2:
+                {
+                    ConsoleReqData.GetGuestInformation(guestMessages);
+                    break;
+                }
+            case 3:
+                {
+                    ConsoleMessages.GoodByeMessage();
+                    break;
+                }
+            default:
+                {
+                    Console.WriteLine("Options are 1, 2 and 3.");
+                    break;
+                }
+        }
+
+    }
+    else
+    {
+        Console.WriteLine("Not a valid number.");
+        Console.WriteLine();
+    }
+   
+}
+
+// Add options Write and View Guestbook + Quit
+
+//ConsoleReqData.GetGuestInformation(guestMessages);
+
+//ConsoleMessages.PrintGuestBookMessages(guestMessages);
+
+//ConsoleMessages.GoodByeMessage();

@@ -21,7 +21,7 @@ public static class ConsoleReqData
             guest.LastName = GetUserInput("Last name: ");
             guest.GuestBookMessage = GetUserInput("Message: ");
             guestMessages.Add(guest);
-            isQuiting = GetUserInput("Do you wish to quit? (yes/no)");
+            isQuiting = GetUserInput("Do you wish to quit? (yes/no): "); // Move this to a new method?
 
         } while (isQuiting != "yes");
     }
@@ -30,6 +30,7 @@ public static class ConsoleReqData
     {
         Console.Write(message);
         string output = Console.ReadLine();
+        Console.WriteLine();
 
         return output;
     }
